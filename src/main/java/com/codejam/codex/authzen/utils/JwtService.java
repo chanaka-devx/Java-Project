@@ -102,7 +102,18 @@ public class JwtService {
 
     public List<String> extractPermissions(String token) {
         Claims claims = extractAllClaims(token);
-        return (List<String>) claims.get("HARD_CODED_PERMISSION");
+        Object rawPermissions = claims.get("HARD_CODED_PERMISSION");
+        if (rawPermissions instanceof List<?>) {
+            List<?> rawList = (List<?>) rawPermissions;
+            List<String> permissions = new ArrayList<>();
+            for (Object item : rawList) {
+                if (item instanceof String) {
+                    permissions.add((String) item);
+                }
+            }
+            return permissions;
+        }
+        return new ArrayList<>();
     }
 
     public boolean isTokenBlacklisted(String token) {

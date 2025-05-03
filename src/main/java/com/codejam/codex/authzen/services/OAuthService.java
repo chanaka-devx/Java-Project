@@ -37,7 +37,7 @@ public class OAuthService {
 
         HttpEntity<Map<String, String>> request = new HttpEntity<>(body, headers);
 
-        ResponseEntity<Map> response = restTemplate.postForEntity(url, request, Map.class);
+        ResponseEntity<Map<String, Object>> response = restTemplate.postForEntity(url, request, (Class<Map<String, Object>>)(Class<?>)Map.class);
         if(response==null){
             throw new RuntimeException();
         }
@@ -52,7 +52,7 @@ public class OAuthService {
 
         HttpEntity<Void> request = new HttpEntity<>(headers);
 
-        ResponseEntity<Map> response = restTemplate.exchange(url,HttpMethod.POST, request, Map.class);
+        ResponseEntity<Map<String, Object>> response = restTemplate.exchange(url,HttpMethod.POST, request, (Class<Map<String, Object>>)(Class<?>)Map.class);
 
         return response.getBody();
     }

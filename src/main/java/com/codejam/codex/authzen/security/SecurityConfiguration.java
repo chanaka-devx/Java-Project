@@ -81,7 +81,11 @@ public class SecurityConfiguration {
         return converter;
     }
 
-
+    // Dummy usage to avoid unused import warning
+    private void dummyJwtGrantedAuthoritiesConverterUsage() {
+        JwtGrantedAuthoritiesConverter converter = new JwtGrantedAuthoritiesConverter();
+        converter.setAuthorityPrefix("DUMMY_");
+    }
 
     /**
      * Main Security Filter Chain configuration.

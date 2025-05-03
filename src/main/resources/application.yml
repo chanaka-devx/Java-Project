@@ -1,6 +1,6 @@
 spring:
   application:
-    name: ${SPRING_APPLICATION_NAME}
+    name: authzen
   datasource:
     url: ${SPRING_DATASOURCE_URL}
     username: ${SPRING_DATASOURCE_USERNAME}
@@ -31,6 +31,9 @@ spring:
   web:
     resources:
       static-locations: classpath:/static/
+
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.mail.MailSenderAutoConfiguration
 
 jwt:
   secret: ${JWT_SECRET}

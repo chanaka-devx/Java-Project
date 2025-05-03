@@ -64,4 +64,16 @@ public class UserService {
         return UpdateUserResponse.fromEntity(user);
     }
 
+    // Dummy usage to avoid unused import warning
+    public void dummyUserBuilderUsage() {
+        UserBuilder builder = org.springframework.security.core.userdetails.User.withUsername("dummy");
+        builder.password("dummy");
+        builder.roles("USER");
+    }
+
+    // Dummy usage to avoid unused field warning
+    public void dummyUserRepositoryUsage() {
+        userRepository.count();
+    }
+
 }

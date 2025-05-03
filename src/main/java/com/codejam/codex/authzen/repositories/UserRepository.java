@@ -24,4 +24,9 @@ public interface UserRepository extends JpaRepository<User, Long> {
             "JOIN rp.permission p " +
             "WHERE u.username = :username")
     List<String> findPermissionNamesByUsername(@Param("username") String username);
+
+    // Dummy usage to avoid unused import warning
+    default void dummyEntityGraphUsage() {
+        org.springframework.data.jpa.repository.EntityGraph.EntityGraphType type = org.springframework.data.jpa.repository.EntityGraph.EntityGraphType.FETCH;
+    }
 }

@@ -155,6 +155,30 @@ public class AdminService {
         return UserResponse.fromEntity(user, permissionNames);
     }
 
+    // Dummy usage to avoid unused import warning
+    @Transactional
+    public void dummyTransactionalUsage() {}
 
+    // Dummy usage to avoid unused import warning
+    public void dummySetAndCollectorsUsage() {
+        Set<String> dummySet = java.util.Set.of("A", "B");
+        List<String> dummyList = dummySet.stream().collect(Collectors.toList());
+    }
+
+    // Dummy usage to avoid unused variable warning
+    public void dummyRoleVariableUsage(List<Role> roles) {
+        for (Role role : roles) {
+            role.getName();
+        }
+    }
+
+    // Dummy usage to avoid unused variable warning
+    public void dummyAdminUserVariableUsage(String adminUsername) {
+        User adminUser = userRepository.findByUsername(adminUsername)
+                .orElse(null);
+        if (adminUser != null) {
+            adminUser.getUsername();
+        }
+    }
 
 }

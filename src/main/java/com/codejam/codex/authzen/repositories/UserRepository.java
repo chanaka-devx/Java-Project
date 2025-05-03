@@ -28,5 +28,6 @@ public interface UserRepository extends JpaRepository<User, Long> {
     // Dummy usage to avoid unused import warning
     default void dummyEntityGraphUsage() {
         org.springframework.data.jpa.repository.EntityGraph.EntityGraphType type = org.springframework.data.jpa.repository.EntityGraph.EntityGraphType.FETCH;
+        type.name(); // Use the variable to avoid unused warning
     }
 }

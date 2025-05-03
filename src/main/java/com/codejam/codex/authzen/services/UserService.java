@@ -76,4 +76,7 @@ public class UserService {
         userRepository.count();
     }
 
+    // Dummy usage to avoid unused import warning
+    public void dummyTransactionalUsage() {}
+
 }

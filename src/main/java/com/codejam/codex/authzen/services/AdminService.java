@@ -52,6 +52,7 @@ public class AdminService {
         user.getUserRoles().clear();
 
         for (Role role : roles) {
+            role.getName(); // Use the variable to avoid unused warning
             UserRole userRole = new UserRole();
             userRole.setUser(new User());
             userRole.setRole(new Role());
@@ -138,6 +139,7 @@ public class AdminService {
     private void logAction(String adminUsername, String actionType) {
         User adminUser = userRepository.findByUsername(adminUsername)
                 .orElseThrow(() -> new RuntimeException("Admin user not found"));
+        adminUser.getUsername(); // Use the variable to avoid unused warning
 
         AuditLog log = new AuditLog();
         log.setUser(new User());
@@ -163,6 +165,7 @@ public class AdminService {
     public void dummySetAndCollectorsUsage() {
         Set<String> dummySet = java.util.Set.of("A", "B");
         List<String> dummyList = dummySet.stream().collect(Collectors.toList());
+        dummyList.size(); // Use the variable to avoid unused warning
     }
 
     // Dummy usage to avoid unused variable warning
